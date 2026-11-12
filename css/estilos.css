@@ -1,0 +1,324 @@
+/* =============================================================
+   Hoja de estilos de Ecoshop, escrita en Sass.
+   Se compila a css/estilos.css con:
+       npx sass scss/estilos.scss css/estilos.css --no-source-map
+   Los comentarios de bloque (barra y asterisco) SI pasan al CSS;
+   los de doble barra se pierden al compilar.
+   ============================================================= */
+/* VARIABLES CSS: la paleta de 5 colores, disponible en todo el sitio con var(--nombre) */
+:root {
+  --color-principal: #0B6E4F;
+  --color-acento: #FF9F1C;
+  --color-fondo: #FFF8EC;
+  --color-texto: #1B2A2F;
+  --color-suave: #D6EFE3;
+}
+
+/* Selector de ETIQUETA: body afecta toda la pagina. Fuente de Google Fonts (Poppins) */
+body {
+  font-family: "Poppins", Arial, sans-serif;
+  background-color: var(--color-fondo);
+  color: var(--color-texto);
+}
+
+/* Selector AGRUPADO: la misma regla para h1, h2 y h3 (separados por coma) */
+h1, h2, h3 {
+  color: var(--color-principal);
+  font-weight: 700;
+}
+
+/* Selector de CLASE (.encabezado) con MODELO DE CAJA: margin, padding, border, border-radius y box-shadow */
+.encabezado {
+  background-color: var(--color-principal);
+  margin-bottom: 24px;
+  border-bottom: 6px solid var(--color-acento);
+  padding: 24px;
+  border-radius: 14px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+/* Selector DESCENDIENTE: .encabezado h1 (cualquier h1 dentro del encabezado) */
+.encabezado h1 {
+  color: white;
+}
+.encabezado p {
+  color: var(--color-suave);
+}
+@media (max-width: 576px) {
+  .encabezado {
+    padding: 16px;
+  }
+  .encabezado h1 {
+    font-size: 1.6rem;
+  }
+}
+
+/* La marca: logo (hoja en SVG) y nombre en una fila con Flexbox */
+.marca {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.marca svg {
+  width: 40px;
+  height: 40px;
+}
+.marca .nombre-marca {
+  color: white;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+/* Selector de ID (#intro): un solo elemento de la pagina */
+#intro {
+  background-color: white;
+  padding: 16px 24px;
+  margin-bottom: 24px;
+  border-left: 6px solid var(--color-acento);
+  border-radius: 14px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* FLEXBOX en el MENU: los enlaces en fila; en celular, en columna */
+.menu {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+@media (max-width: 576px) {
+  .menu {
+    flex-direction: column;
+  }
+}
+/* Selector HIJO (>): solo los <a> que estan directamente dentro de .menu */
+.menu > a {
+  color: white;
+  text-decoration: none;
+  padding: 6px 16px;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  border-radius: 999px;
+  /* TRANSICION 1: el fondo y la letra cambian suavemente en 0,3 segundos */
+  transition: background-color 0.3s, color 0.3s;
+  /* Pseudoclase :hover: el mouse esta encima */
+  /* Pseudoclase :focus: se llego con la tecla Tab */
+  /* Selector de ATRIBUTO: el enlace de la pagina actual (aria-current="page") */
+}
+.menu > a:hover {
+  background-color: white;
+  color: var(--color-principal);
+}
+.menu > a:focus {
+  outline: 3px solid var(--color-acento);
+}
+.menu > a[aria-current=page] {
+  background-color: var(--color-acento);
+  border-color: var(--color-acento);
+  color: var(--color-texto);
+  font-weight: 700;
+}
+
+/* GRID: las tarjetas en 3 columnas iguales; tablet 2; celular 1 */
+.tarjetas {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 24px;
+}
+@media (max-width: 992px) {
+  .tarjetas {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 576px) {
+  .tarjetas {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Cada tarjeta: fondo, borde, mixin de caja y TRANSICION 2 (el movimiento al subir) */
+.tarjeta {
+  background-color: white;
+  border: 1px solid var(--color-suave);
+  padding: 16px;
+  border-radius: 14px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s;
+  /* Pseudoclase :first-child: la primera tarjeta de cada grupo, con borde naranja arriba */
+  /* Pseudoclase :nth-child(2): el segundo hijo de la tarjeta, si es un <p> */
+}
+.tarjeta:hover {
+  transform: translateY(-6px);
+}
+.tarjeta:first-child {
+  border-top: 6px solid var(--color-acento);
+}
+.tarjeta p:nth-child(2) {
+  min-height: 48px;
+}
+
+/* Las cifras de El Nino en la portada: numero grande */
+.cifra {
+  color: var(--color-acento);
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0;
+}
+
+/* El precio de cada producto */
+.precio {
+  color: var(--color-principal);
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+/* Etiqueta de la categoria (la escribe JavaScript) */
+.categoria {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: 999px;
+  background-color: var(--color-suave);
+  font-size: 0.8rem;
+}
+
+/* El ahorro en kWh y en pesos */
+.ahorro {
+  color: var(--color-principal);
+  font-weight: 700;
+}
+
+/* Buscador: espacio debajo del campo de texto */
+.buscador {
+  margin-bottom: 12px;
+}
+
+/* FLEXBOX en los FILTROS: botones en fila */
+.filtros {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.filtro {
+  border: 2px solid var(--color-principal);
+  background-color: white;
+  color: var(--color-principal);
+  padding: 6px 16px;
+  border-radius: 999px;
+  transition: background-color 0.3s;
+  /* &.activo = .filtro.activo: el boton elegido se resalta */
+}
+.filtro:hover, .filtro.activo {
+  background-color: var(--color-principal);
+  color: white;
+}
+
+/* GRID del catalogo: productos (3 partes) y carrito (1 parte). En tablet y celular el carrito pasa DEBAJO */
+.catalogo {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  gap: 16px;
+  align-items: start;
+}
+@media (max-width: 992px) {
+  .catalogo {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ID #carrito: la caja del carrito */
+#carrito {
+  background-color: white;
+  border: 2px solid var(--color-acento);
+  padding: 16px;
+  border-radius: 14px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  position: sticky;
+  top: 16px;
+}
+@media (max-width: 992px) {
+  #carrito {
+    position: static;
+  }
+}
+
+/* Tarjetas de "Nosotros": el avatar con las iniciales */
+.avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 72px;
+  height: 72px;
+  margin-bottom: 12px;
+  border-radius: 50%;
+  background-color: var(--color-principal);
+  color: white;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+/* Pseudoclase :nth-child() combinada con descendiente: la 2.a tarjeta de .integrantes lleva el avatar naranja */
+.integrantes .tarjeta:nth-child(2) .avatar {
+  background-color: var(--color-acento);
+  color: var(--color-texto);
+}
+
+.rol {
+  color: var(--color-principal);
+  font-weight: 700;
+}
+
+/* Formulario de contacto: caja blanca centrada */
+.formulario {
+  background-color: white;
+  max-width: 640px;
+  margin: 0 auto 24px;
+  border: 1px solid var(--color-suave);
+  padding: 24px;
+  border-radius: 14px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+.formulario label {
+  font-weight: 700;
+  margin-top: 12px;
+}
+
+/* Selector de ATRIBUTO: los enlaces que abren otra pestana */
+a[target=_blank] {
+  color: var(--color-principal);
+  font-weight: 700;
+}
+
+/* El pie de pagina */
+.pie {
+  margin-top: 24px;
+  padding-top: 12px;
+  border-top: 1px solid var(--color-suave);
+  color: #52606D;
+  font-size: 0.9rem;
+}
+
+/* ===== BOOTSTRAP PERSONALIZADO (sin tocar su archivo) =====
+   Bootstrap lee sus colores de variables --bs-...; aqui se les dan otros valores */
+/* Componente 1: boton primario con los colores de Ecoshop */
+.btn-primary {
+  --bs-btn-bg: var(--color-principal);
+  --bs-btn-border-color: var(--color-principal);
+  --bs-btn-hover-bg: var(--color-acento);
+  --bs-btn-hover-border-color: var(--color-acento);
+  --bs-btn-hover-color: #1B2A2F;
+}
+
+/* Componente 2: el aviso (alert) con el naranja de la tienda */
+.alert-warning {
+  background-color: #FFF1DC;
+  border-color: var(--color-acento);
+  border-left: 6px solid var(--color-acento);
+  border-radius: 14px;
+}
+
+/* Componente 3: los campos de formulario, con foco verde */
+.form-control:focus,
+.form-select:focus {
+  border-color: var(--color-principal);
+  box-shadow: 0 0 0 0.25rem rgba(11, 110, 79, 0.25);
+}

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<!-- DOCTYPE: le dice al navegador que esta pagina es HTML5. lang="es": el texto esta en espanol -->
+<html lang="es">
+<head>
+    <!-- charset UTF-8: permite tildes y enes -->
+    <meta charset="UTF-8">
+    <!-- viewport: en el celular, la pagina usa el ancho real de la pantalla -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ecoshop: equipos que ahorran energía</title>
+    <!-- Bootstrap (CDN): se carga PRIMERO -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <!-- Google Fonts: la fuente Poppins (400 y 700) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap">
+    <!-- Hoja de estilos PROPIA: va DESPUES de Bootstrap para poder cambiar su apariencia -->
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body class="container py-3">
+    <!-- Encabezado: marca (logo + nombre), eslogan y menu. El MISMO menu en las 4 paginas -->
+    <header class="encabezado">
+        <div class="marca">
+            <svg viewBox="0 0 48 48" aria-hidden="true">
+                <circle cx="24" cy="24" r="22" fill="#FF9F1C"/>
+                <path d="M12 34c0-12 8-20 24-20 0 14-8 22-20 22-1.5 0-3-.5-4-2z" fill="#FFF8EC"/>
+                <path d="M14 34c6-8 12-12 18-14" stroke="#0B6E4F" stroke-width="2" fill="none" stroke-linecap="round"/>
+            </svg>
+            <span class="nombre-marca">Ecoshop</span>
+        </div>
+        <h1>Energía que rinde</h1>
+        <p>Equipos eficientes para pagar menos en tiempos de El Niño.</p>
+        <nav class="menu">
+            <a href="index.html" aria-current="page">Inicio</a>
+            <a href="catalogo.html">Catálogo</a>
+            <a href="nosotros.html">Nosotros</a>
+            <a href="contacto.html">Contacto</a>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Aviso de Bootstrap (alert-warning) personalizado en estilos.css -->
+        <div class="alert alert-warning" role="alert">
+            <strong>Hora pico:</strong> de 6 a 9 de la noche la energía llegó a costar
+            1.612 COP/kWh en septiembre de 2026.
+        </div>
+
+        <!-- Seccion con id="intro": el efecto de El Nino 2026 en el precio de la energia -->
+        <section id="intro">
+            <h2>El Niño 2026 y tu factura de energía</h2>
+            <p>
+                En 2026 llegó un <strong>El Niño fuerte</strong>: llueve menos, bajan los embalses
+                y la energía se encarece. El precio de bolsa pasó de <strong>212 COP/kWh</strong>
+                en enero a <strong>942 COP/kWh</strong> en agosto: se multiplicó por <strong>4,4</strong>.
+            </p>
+            <p>
+                Un equipo viejo gasta la misma energía de siempre, pero ahora cada kWh cuesta mucho más.
+                Cambiarlo por uno eficiente es la forma más directa de pagar menos.
+            </p>
+        </section>
+
+        <!-- Los datos reales en tarjetas (Grid) -->
+        <section>
+            <h2>Las cifras del alza</h2>
+            <div class="tarjetas">
+                <article class="tarjeta">
+                    <p class="cifra">212 COP/kWh</p>
+                    <p>Precio de bolsa en enero de 2026, antes del fenómeno.</p>
+                </article>
+                <article class="tarjeta">
+                    <p class="cifra">942 COP/kWh</p>
+                    <p>Precio de bolsa en agosto de 2026, con El Niño en su punto fuerte.</p>
+                </article>
+                <article class="tarjeta">
+                    <p class="cifra">1.612 COP/kWh</p>
+                    <p>Precio en la hora pico (6 a 9 de la noche) en septiembre de 2026.</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- Por que conviene un equipo eficiente -->
+        <section>
+            <h2>Por qué conviene un equipo eficiente</h2>
+            <div class="tarjetas">
+                <article class="tarjeta">
+                    <h3>Paga menos</h3>
+                    <p>Un monitor LED de 18 W reemplaza a uno de 55 W y gasta 67 % menos.</p>
+                </article>
+                <article class="tarjeta">
+                    <h3>Recupera la inversión</h3>
+                    <p>Con lo que ahorra cada mes, el equipo se paga solo en pocos meses.</p>
+                </article>
+                <article class="tarjeta">
+                    <h3>Cuida los embalses</h3>
+                    <p>Menos demanda en la hora pico significa menos plantas térmicas encendidas.</p>
+                </article>
+            </div>
+            <a class="btn btn-primary" href="catalogo.html">Ver el catálogo</a>
+        </section>
+    </main>
+
+    <!-- Pie de pagina -->
+    <footer class="pie">
+        <p>Ecoshop · Equipos que ahorran energía. Fuente de los precios de la energía:
+           <a href="https://www.xm.com.co" target="_blank">XM</a>.
+           Los productos y sus precios son de ejemplo.</p>
+        <p>Ingeniería Web I · IU Digital de Antioquia · 2026-2</p>
+    </footer>
+</body>
+</html>

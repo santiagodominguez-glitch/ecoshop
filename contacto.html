@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<!-- DOCTYPE: le dice al navegador que esta pagina es HTML5. lang="es": el texto esta en espanol -->
+<html lang="es">
+<head>
+    <!-- charset UTF-8: permite tildes y enes -->
+    <meta charset="UTF-8">
+    <!-- viewport: en el celular, la pagina usa el ancho real de la pantalla -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto · Ecoshop</title>
+    <!-- Bootstrap (CDN): se carga PRIMERO -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <!-- Google Fonts: la fuente Poppins (400 y 700) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap">
+    <!-- Hoja de estilos PROPIA: va DESPUES de Bootstrap para poder cambiar su apariencia -->
+    <link rel="stylesheet" href="css/estilos.css">
+    <script src="js/contacto.js" defer></script>
+</head>
+<body class="container py-3">
+    <!-- Encabezado: marca (logo + nombre), eslogan y menu. El MISMO menu en las 4 paginas -->
+    <header class="encabezado">
+        <div class="marca">
+            <svg viewBox="0 0 48 48" aria-hidden="true">
+                <circle cx="24" cy="24" r="22" fill="#FF9F1C"/>
+                <path d="M12 34c0-12 8-20 24-20 0 14-8 22-20 22-1.5 0-3-.5-4-2z" fill="#FFF8EC"/>
+                <path d="M14 34c6-8 12-12 18-14" stroke="#0B6E4F" stroke-width="2" fill="none" stroke-linecap="round"/>
+            </svg>
+            <span class="nombre-marca">Ecoshop</span>
+        </div>
+        <h1>Contacto</h1>
+        <p>Escríbenos: respondemos pronto.</p>
+        <nav class="menu">
+            <a href="index.html">Inicio</a>
+            <a href="catalogo.html">Catálogo</a>
+            <a href="nosotros.html">Nosotros</a>
+            <a href="contacto.html" aria-current="page">Contacto</a>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h2>Escríbenos</h2>
+            <p>Cuéntanos qué equipo quieres cambiar y te ayudamos a calcular el ahorro.</p>
+            <!-- Formulario con 6 campos; cada uno con su label (for = id del campo) -->
+            <form id="formulario-contacto" class="formulario">
+                <label for="nombre" class="form-label">Nombre completo</label>
+                <input type="text" id="nombre" class="form-control" required>
+
+                <label for="correo" class="form-label">Correo electrónico</label>
+                <input type="email" id="correo" class="form-control" required>
+
+                <label for="telefono" class="form-label">Teléfono</label>
+                <input type="tel" id="telefono" class="form-control">
+
+                <label for="ciudad" class="form-label">Ciudad</label>
+                <input type="text" id="ciudad" class="form-control">
+
+                <label for="asunto" class="form-label">Asunto</label>
+                <select id="asunto" class="form-select">
+                    <option>Quiero una cotización</option>
+                    <option>Tengo una pregunta sobre un producto</option>
+                    <option>Quiero calcular mi ahorro</option>
+                </select>
+
+                <label for="mensaje" class="form-label">Mensaje</label>
+                <textarea id="mensaje" class="form-control" rows="4" required></textarea>
+
+                <button type="submit" class="btn btn-primary mt-3">Enviar mensaje</button>
+            </form>
+            <!-- Aqui JavaScript escribe el aviso de gracias -->
+            <div id="aviso"></div>
+        </section>
+    </main>
+
+    <!-- Pie de pagina -->
+    <footer class="pie">
+        <p>Ecoshop · Equipos que ahorran energía. Fuente de los precios de la energía:
+           <a href="https://www.xm.com.co" target="_blank">XM</a>.
+           Los productos y sus precios son de ejemplo.</p>
+        <p>Ingeniería Web I · IU Digital de Antioquia · 2026-2</p>
+    </footer>
+</body>
+</html>
